@@ -1,0 +1,170 @@
+@prefix : <http://www.semanticweb.org/fahadkhan/ontologies/2017/10/lsj#> .
+@prefix att: <http://www.semanticweb.org/fahadkhan/ontologies/2017/10/Attestation#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix frac: <http://www.w3.org/nl/lemon/frac#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cito: <http://purl.org/spar/cito#> .
+
+dcterms:title a owl:DatatypeProperty .
+frbr:creator a owl:ObjectProperty .
+frbr:partOf a owl:ObjectProperty .
+att:hasBiblScope a owl:DatatypeProperty .
+frac:attestation a owl:ObjectProperty .
+frac:citation a owl:ObjectProperty .
+frac:makeAttestation a owl:ObjectProperty . 
+rdfs:seeAlso a owl:ObjectProperty .
+ontolex:sense a owl:ObjectProperty .
+ontolex:isSenseOf a owl:ObjectProperty .
+ontolex:canonicalForm a  owl:ObjectProperty . 
+cito:hasCitedEntity a owl:ObjectProperty .
+att:conjectural a owl:DatatypeProperty .
+ontolex:writtenRep a owl:DatatypeProperty .
+att:attestationGloss a owl:DatatypeProperty .
+lime:entry a owl:ObjectProperty .
+
+
+<http://www.semanticweb.org/fahadkhan/ontologies/2017/10/lsj#> a lime:Lexicon ;
+    owl:imports <http://www.w3.org/ns/lemon/ontolex#> ;
+    lime:entry :lsjEntry_ent_n10947 .
+
+
+
+:lsjEntry_ent_n10947 a ontolex:LexicalEntry ;
+    ontolex:canonicalForm :lsjEntry_ent_n10947canForm ;
+    ontolex:sense :sense_n10947_0,
+        :sense_n10947_1,
+        :sense_n10947_2,
+		:sense_n10947_3 .
+
+:lsjEntry_ent_n10947canForm a ontolex:Form ;
+    ontolex:writtenRep "ἀνώμα^λ-ος"@grc .
+	
+:sense_n10947_0 a ontolex:LexicalSense ;
+    frac:attestation :att_n10947_0_bib0,
+        :att_n10947_0_bib1,
+        :att_n10947_0_bib2,
+        :att_n10947_0_bib3,
+        :att_n10947_0_bib5,
+        :att_n10947_0_bib6,
+        :att_n10947_0_bib7,
+        :att_n10947_0_bib8,
+        :att_n10947_0_bib9 ;
+	cito:cites :cit_n10947_0_1, 
+		:cit_n10947_0_2, 
+		:cit_n10947_0_3;
+    ontolex:isSenseOf :lsjEntry_ent_n10947 .
+	
+:att_n10947_0_bib0 a frac:Attestation ;
+    cito:hasCitedEntity :n10947_0_bib0 ;
+    att:hasBiblScope "625d" ;
+    att:attestationGloss "uneven, irregular, “χώρα” Pl.Lg.625d";
+    frac:quotation  "χώρα"  . 
+	
+# CC: doesn’t seem to exist in the actual text: γὰρ ἀνώμαλος αὖ καὶ πρὸς
+# FK: the bibliographic reference is correct, but the URN doesn't give the right part of the text
+# FK: I'm not sure quotation is the right property to use here, since this is a quotation from the attestation text...
+# FK: ...which doesn't feature the actual word but which does serve to clarify the meaning	
+
+	
+:n10947_0_bib0 a fabio:Excerpt ;
+    frbr:partOf <http://data.perseus.org/citations/urn:cts:greekLit:tlg0059.tlg034> .	
+	
+:att_n10947_0_bib1 a frac:Attestation ;
+    cito:hasCitedEntity :n10947_0_bib1 ;
+    att:hasBiblScope "58a" ;
+	att:attestationGloss "φύσις” Id.Ti.58a";
+    frac:quotation "φύσις".
+
+:n10947_0_bib1 a fabio:Excerpt ;
+    frbr:partOf <http://data.perseus.org/citations/urn:cts:greekLit:tlg0059.tlg031> .
+
+:att_n10947_0_bib2 a frac:Attestation ;
+    cito:hasCitedEntity :n10947_0_bib2 ;
+    att:hasBiblScope "7.71" ;
+    frac:quotation "τὸ ἀ. τῆς ναυμαχίας" ;
+	att:attestationGloss "'τὸ ἀ. τῆς ναυμαχίας' Th.7.71 (cj.), cf. Arist.Pr.885a15: and in Sup., Hp.Aër.13" ;
+    rdfs:seeAlso :cit_n10947_0_1, :cit_n10947_0_2; 
+	:conjectural 'True' .
+	
+# CC: suggestion to model conjectural in lexinfo, in analogy with lexinfo:deprecatedTerm, lexinfo:preferredTerm, etc.; in lexinfo 2.0, this would be 
+# lemon[sic!]:context lexinfo:conjectural
+# or
+# lexinfo:normativeAuthorization lexinfo:conjectural
+# in the process of shaping lexinfo 3.0, either of these properties needs to be updated, for example, we can create a lemon:context subproperty lexinfo:evidentiality
+
+# CC: suggestion: focus on attestation ...bib2 for the paper
+
+:n10947_0_bib2 a fabio:Excerpt ;
+    frbr:partOf <http://data.perseus.org/citations/urn:cts:greekLit:tlg0003.tlg001> .
+
+:att_n10947_0_bib3 a frac:Attestation ;
+    cito:hasCitedEntity :n10947_0_bib3 ;
+    att:hasBiblScope "228a16" ;
+	att:attestationGloss "of movements, Arist.Ph.228b16, al.".
+	
+:n10947_0_bib3 a fabio:Excerpt ;
+    frbr:partOf <http://data.perseus.org/citations/urn:cts:greekLit:tlg0086.tlg031> .
+
+:att_n10947_0_bib4 a frac:Attestation ;
+    cito:hasCitedEntity  :n10947_0_bib4 ;
+    att:hasBiblScope "772b7" ;
+	att:attestationGloss "of periods of time, Id.GA772b7" .
+	
+:n10947_0_bib4 a fabio:Excerpt ;
+    frbr:partOf <http://data.perseus.org/citations/urn:cts:greekLit:tlg0086.tlg036> .
+	
+:att_n10947_0_bib5 a frac:Attestation ;
+    cito:hasCitedEntity :biblio5 ;
+	att:hasBibScope "788a1";
+	att:attestationGloss "of the voice, ib.788a1. Adv." .
+	
+:n10947_0_bib5 a fabio:Excerpt ;
+    frbr:partOf :biblio5 .
+	
+:biblio5 a frbr:Work . 
+
+:att_n10947_0_bib6 a frac:Attestation ;
+    cito:hasCitedEntity :n10947_0_bib6 ;
+    att:hasBiblScope "238a22" ;
+	att:attestationGloss "'-λως, κινεῖσθαι' Id.Ph.238a22, cf. Pl.Ti.52e" ;
+    frac:quotation "-λως, κινεῖσθαι" ;
+    rdfs:seeAlso :cit_n10947_0_3 .
+	
+:n10947_0_bib6 a fabio:Excerpt ;
+    frbr:partOf :biblio6 .
+
+:biblio6 a frbr:Work . 
+
+:cit_n10947_0_3 a cito:Citation; 
+	cito:hasCitedEntity :n10947_0_bib7 .
+
+:n10947_0_bib7 a fabio:Excerpt ;
+    frbr:partOf <http://data.perseus.org/citations/urn:cts:greekLit:tlg0059.tlg031>.
+	
+:cit_n10947_0_1 a cito:Citation . 
+
+:cit_n10947_0_2 a cito:Citation . 
+
+<http://data.perseus.org/citations/urn:cts:greekLit:tlg0003.tlg001> a frbr:Work .
+
+<http://data.perseus.org/citations/urn:cts:greekLit:tlg0086.tlg034> a frbr:Work ;
+    dcterms:title "Historiae" ;
+    frbr:creator <http://viaf.org/viaf/95161463/> .
+
+<http://data.perseus.org/citations/urn:cts:greekLit:tlg0086.tlg036> a frbr:Work ;
+    dcterms:title "Persae" ;
+    frbr:creator <http://viaf.org/viaf/268526195/> .
+
+<http://data.perseus.org/citations/urn:cts:greekLit:tlg0059.tlg031> a frbr:Work .
+
+<http://data.perseus.org/citations/urn:cts:greekLit:tlg0059.tlg034> a frbr:Work .
+
